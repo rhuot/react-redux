@@ -1,0 +1,17 @@
+name: Test deploy
+
+concurrency: production
+
+on:
+  branches:
+    - main
+    - master
+    
+jobs:
+  deployment:
+    name: Deploy de la mort
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploying on dev
+        run: echo "Deploying..."
