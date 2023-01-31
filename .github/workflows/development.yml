@@ -12,7 +12,7 @@ on:
     
 jobs:
   deployment:
-    name: Deploy de la mort
+    name: Deploy de la mort sur dev
     environment: development
     runs-on: ubuntu-latest
     steps:
