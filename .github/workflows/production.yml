@@ -11,7 +11,7 @@ on:
       - master
     
 jobs:
-  deployment:
+  deploy-moi:
     name: Deploy de la mort
     environment: production
     runs-on: ubuntu-latest
