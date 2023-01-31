@@ -1,0 +1,20 @@
+name: development deployment
+
+concurrency: 
+  group: development
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    
+jobs:
+  deployment:
+    name: Deploy de la mort
+    environment: development
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploying on development
+        run: echo "Deploying..."
