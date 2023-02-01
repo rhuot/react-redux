@@ -3,7 +3,7 @@ name: Verify Branch is Up to Date
 on:
   push:
     branches:
-      - test
+      - toto
 
 jobs:
   verify:
@@ -15,27 +15,16 @@ jobs:
 
     - name: Fetch Latest Changes
       run: |
-        git fetch origin
-        git branch -u origin/master test
+        git fetch origin toto
+        git checkout toto
 
     - name: Verify Branch is Up to Date
       run: |
-        UPSTREAM=${1:-'@{u}'}
-        LOCAL=$(git rev-parse @)
-        REMOTE=$(git rev-parse "$UPSTREAM")
-        BASE=$(git merge-base @ "$UPSTREAM")
+        DIFF=$(git rev-list --left-only --count origin/master...@)
 
-        if [ $LOCAL = $REMOTE ]; then
+        if [ $DIFF -eq 0 ]; then
           echo "Branch is up to date"
-        elif [ $LOCAL = $BASE ]; then
+        else
           echo "Branch is behind"
           exit 1
-        else
-          echo "Branch has diverged"
-          exit 1
         fi
-The above example checks out your branch mybranch, fetches the latest changes from the remote repository, and compares your branch with the main branch. If the branch is up to date, it will print "Branch is up to date". If the branch is behind the main branch, it will print "Branch is behind" and exit with status code 1. If the branch has diverged, it will print "Branch has diverged" and exit with status code 1.
-
-
-
-
