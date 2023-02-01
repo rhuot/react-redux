@@ -1,4 +1,4 @@
-name: Verify Branch is Up to Date
+name: verify Branch is Up to Date
 
 on:
   push:
