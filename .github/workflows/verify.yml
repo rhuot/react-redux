@@ -34,7 +34,6 @@ jobs:
           echo "Branch has diverged"
           exit 1
         fi
-The above example checks out your branch mybranch, fetches the latest changes from the remote repository, and compares your branch with the main branch. If the branch is up to date, it will print "Branch is up to date". If the branch is behind the main branch, it will print "Branch is behind" and exit with status code 1. If the branch has diverged, it will print "Branch has diverged" and exit with status code 1.
 
 
 
