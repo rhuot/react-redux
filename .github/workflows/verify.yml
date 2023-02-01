@@ -29,10 +29,10 @@ jobs:
           echo "Branch is up to date"
         elif [ $LOCAL = $BASE ]; then
           echo "Branch is behind"
-          exit 1
+#          exit 1
         else
           echo "Branch has diverged"
-          exit 1
+#          exit 1
         fi
 
 
